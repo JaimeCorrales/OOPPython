@@ -1,27 +1,38 @@
 import tkinter as tk
 from tkinter import scrolledtext
+from tkinter import ttk
+from PIL import Image, ImageTk
 
 class OOPApp:
     def __init__(self, root):
         self.root = root
         self.root.title("OOP & SOLID Educational App")
-        self.root.geometry("600x400")
+        self.root.geometry("750x550")
+        self.root.configure(bg="#e0f7fa")
         
-        self.label = tk.Label(root, text="Learn OOP with SOLID Principles", font=("Arial", 14, "bold"))
+        # Load icon
+        self.icon_img = Image.open("icon.png")
+        self.icon_img = self.icon_img.resize((50, 50))
+        self.icon = ImageTk.PhotoImage(self.icon_img)
+        self.icon_label = tk.Label(root, image=self.icon, bg="#e0f7fa")
+        self.icon_label.pack(pady=5)
+        
+        # Title Label
+        self.label = tk.Label(root, text="Learn OOP with SOLID Principles", font=("Arial", 16, "bold"), bg="#e0f7fa", fg="#004d40")
         self.label.pack(pady=10)
         
-        # Buttons for each principle
-        self.buttons_frame = tk.Frame(root)
-        self.buttons_frame.pack()
+        # Frame for Buttons
+        self.buttons_frame = tk.Frame(root, bg="#e0f7fa")
+        self.buttons_frame.pack(pady=10)
         
         principles = ["Encapsulation", "Abstraction", "Inheritance", "Polymorphism"]
         for principle in principles:
-            btn = tk.Button(self.buttons_frame, text=principle, command=lambda p=principle: self.show_example(p))
-            btn.pack(side=tk.LEFT, padx=5)
+            btn = ttk.Button(self.buttons_frame, text=principle, command=lambda p=principle: self.show_example(p))
+            btn.pack(side=tk.LEFT, padx=10, pady=5)
         
         # Display area
-        self.text_area = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=70, height=15)
-        self.text_area.pack(pady=10)
+        self.text_area = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=80, height=20, font=("Courier", 10), bg="#ffffff", fg="#000000", insertbackground="black", borderwidth=2, relief="solid")
+        self.text_area.pack(pady=10, padx=10)
         
     def show_example(self, principle):
         examples = {
