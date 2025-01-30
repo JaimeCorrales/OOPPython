@@ -100,8 +100,8 @@ class ConceptWindow(tk.Toplevel):
         self.geometry("600x550")
         
         explanations = {
-            "Inheritance": "Inheritance allows one class to acquire the properties and methods of another.",
-            "Encapsulation": "Encapsulation restricts direct access to some of an object's components.",
+            "Inheritance": "Inheritance allows us to define a class that inherits all the methods and properties from another class.\n Parent class is the class being inherited from, also called base class.\n Child class is the class that inherits from another class, also called derived class.",
+            "Encapsulation": "Encapsulation is the process of hiding the internal state of an object and requiring all interactions to be performed through an object's methods.\n Python achieves encapsulation through public, protected and private attributes.",
             "Method Overloading": "Method overloading allows multiple methods with the same name but different parameters.",
             "Multiple Inheritance": "Multiple inheritance allows a class to inherit from more than one base class."
         }
